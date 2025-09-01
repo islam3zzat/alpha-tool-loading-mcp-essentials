@@ -1,13 +1,13 @@
-import {main} from '..';
+import { main } from '..';
 import {
   AuthConfig,
   CommercetoolsAgentEssentials,
   Configuration,
-} from '@commercetools/agent-essentials/modelcontextprotocol';
-import {StdioServerTransport} from '@modelcontextprotocol/sdk/server/stdio.js';
+} from '@islam3zzat/agent-essentials/modelcontextprotocol';
+import { StdioServerTransport } from '@modelcontextprotocol/sdk/server/stdio.js';
 
 // Mock these imports
-jest.mock('@commercetools/agent-essentials/modelcontextprotocol');
+jest.mock('@islam3zzat/agent-essentials/modelcontextprotocol');
 jest.mock('@modelcontextprotocol/sdk/server/stdio.js');
 
 describe('Product Type Tools', () => {
@@ -16,7 +16,7 @@ describe('Product Type Tools', () => {
     jest
       .spyOn(CommercetoolsAgentEssentials, 'create')
       .mockImplementation(
-        (_: {authConfig: AuthConfig; configuration: Configuration}) =>
+        (_: { authConfig: AuthConfig; configuration: Configuration }) =>
           Promise.resolve<any>({
             connect: jest.fn(),
           })
@@ -49,7 +49,7 @@ describe('Product Type Tools', () => {
         apiUrl: 'https://api.commercetools.com',
       },
       configuration: {
-        actions: {'product-type': {read: true}},
+        actions: { 'product-type': { read: true } },
         context: {
           isAdmin: true,
         },
@@ -84,7 +84,7 @@ describe('Product Type Tools', () => {
         apiUrl: 'https://api.commercetools.com',
       },
       configuration: {
-        actions: {'product-type': {create: true}},
+        actions: { 'product-type': { create: true } },
         context: {
           isAdmin: true,
         },
@@ -117,7 +117,7 @@ describe('Product Type Tools', () => {
         apiUrl: 'https://api.commercetools.com',
       },
       configuration: {
-        actions: {'product-type': {update: true}},
+        actions: { 'product-type': { update: true } },
         context: {
           isAdmin: true,
         },
@@ -150,7 +150,7 @@ describe('Product Type Tools', () => {
         apiUrl: 'https://api.commercetools.com',
       },
       configuration: {
-        actions: {'product-type': {read: true, create: true, update: true}},
+        actions: { 'product-type': { read: true, create: true, update: true } },
         context: {
           isAdmin: true,
         },
@@ -184,7 +184,7 @@ describe('Product Type Tools', () => {
         apiUrl: 'https://api.commercetools.com',
       },
       configuration: {
-        actions: {'product-type': {read: true}},
+        actions: { 'product-type': { read: true } },
         context: {
           customerId: 'xxx',
           isAdmin: true,

@@ -1,13 +1,13 @@
-import {main} from '../index';
+import { main } from '../index';
 import {
   AuthConfig,
   CommercetoolsAgentEssentials,
   Configuration,
-} from '@commercetools/agent-essentials/modelcontextprotocol';
-import {StdioServerTransport} from '@modelcontextprotocol/sdk/server/stdio.js';
-import {McpServer} from '@modelcontextprotocol/sdk/server/mcp.js';
+} from '@islam3zzat/agent-essentials/modelcontextprotocol';
+import { StdioServerTransport } from '@modelcontextprotocol/sdk/server/stdio.js';
+import { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js';
 
-jest.mock('@commercetools/agent-essentials/modelcontextprotocol');
+jest.mock('@islam3zzat/agent-essentials/modelcontextprotocol');
 jest.mock('@modelcontextprotocol/sdk/server/stdio.js');
 jest.mock('@modelcontextprotocol/sdk/server/mcp.js');
 
@@ -23,7 +23,7 @@ describe('main function', () => {
     jest
       .spyOn(CommercetoolsAgentEssentials, 'create')
       .mockImplementation(
-        (_: {authConfig: AuthConfig; configuration: Configuration}) =>
+        (_: { authConfig: AuthConfig; configuration: Configuration }) =>
           Promise.resolve<any>({
             connect: jest.fn(),
           })
@@ -56,28 +56,28 @@ describe('main function', () => {
       },
       configuration: {
         actions: {
-          products: {read: true, create: true, update: true},
-          project: {read: true},
-          'product-search': {read: true},
-          category: {read: true, create: true, update: true},
-          'product-selection': {read: true, create: true, update: true},
-          order: {read: true, create: true, update: true},
-          cart: {read: true, create: true, update: true},
-          customer: {read: true, create: true, update: true},
-          'customer-group': {read: true, create: true, update: true},
-          quote: {read: true, create: true, update: true},
-          'quote-request': {read: true, create: true, update: true},
-          'staged-quote': {read: true, create: true, update: true},
-          'standalone-price': {read: true, create: true, update: true},
-          'product-discount': {read: true, create: true, update: true},
-          'cart-discount': {read: true, create: true, update: true},
-          'discount-code': {read: true, create: true, update: true},
-          'product-type': {read: true, create: true, update: true},
-          inventory: {read: true, create: true, update: true},
-          channel: {read: true, create: true, update: true},
-          store: {read: true, create: true, update: true},
-          bulk: {create: true, update: true},
-          'business-unit': {read: true, create: true, update: true},
+          products: { read: true, create: true, update: true },
+          project: { read: true },
+          'product-search': { read: true },
+          category: { read: true, create: true, update: true },
+          'product-selection': { read: true, create: true, update: true },
+          order: { read: true, create: true, update: true },
+          cart: { read: true, create: true, update: true },
+          customer: { read: true, create: true, update: true },
+          'customer-group': { read: true, create: true, update: true },
+          quote: { read: true, create: true, update: true },
+          'quote-request': { read: true, create: true, update: true },
+          'staged-quote': { read: true, create: true, update: true },
+          'standalone-price': { read: true, create: true, update: true },
+          'product-discount': { read: true, create: true, update: true },
+          'cart-discount': { read: true, create: true, update: true },
+          'discount-code': { read: true, create: true, update: true },
+          'product-type': { read: true, create: true, update: true },
+          inventory: { read: true, create: true, update: true },
+          channel: { read: true, create: true, update: true },
+          store: { read: true, create: true, update: true },
+          bulk: { create: true, update: true },
+          'business-unit': { read: true, create: true, update: true },
         },
         context: {
           isAdmin: true,
@@ -116,7 +116,7 @@ describe('main function', () => {
         apiUrl: 'https://api.commercetools.com',
       },
       configuration: {
-        actions: {products: {read: true}},
+        actions: { products: { read: true } },
         context: {
           isAdmin: true,
         },
@@ -151,7 +151,7 @@ describe('main function', () => {
         apiUrl: 'https://api.commercetools.com',
       },
       configuration: {
-        actions: {products: {create: true}},
+        actions: { products: { create: true } },
         context: {
           isAdmin: true,
         },
@@ -186,7 +186,7 @@ describe('main function', () => {
         apiUrl: 'https://api.commercetools.com',
       },
       configuration: {
-        actions: {products: {update: true}},
+        actions: { products: { update: true } },
         context: {
           isAdmin: true,
         },
@@ -221,7 +221,7 @@ describe('main function', () => {
         apiUrl: 'https://api.commercetools.com',
       },
       configuration: {
-        actions: {project: {read: true}},
+        actions: { project: { read: true } },
         context: {
           isAdmin: true,
         },
@@ -256,7 +256,7 @@ describe('main function', () => {
         apiUrl: 'https://api.commercetools.com',
       },
       configuration: {
-        actions: {'product-search': {read: true}},
+        actions: { 'product-search': { read: true } },
         context: {
           isAdmin: true,
         },
@@ -291,7 +291,7 @@ describe('main function', () => {
         apiUrl: 'https://api.commercetools.com',
       },
       configuration: {
-        actions: {category: {read: true}},
+        actions: { category: { read: true } },
         context: {
           isAdmin: true,
         },
@@ -326,7 +326,7 @@ describe('main function', () => {
         apiUrl: 'https://api.commercetools.com',
       },
       configuration: {
-        actions: {category: {create: true}},
+        actions: { category: { create: true } },
         context: {
           isAdmin: true,
         },
@@ -361,7 +361,7 @@ describe('main function', () => {
         apiUrl: 'https://api.commercetools.com',
       },
       configuration: {
-        actions: {category: {update: true}},
+        actions: { category: { update: true } },
         context: {
           isAdmin: true,
         },
@@ -396,7 +396,7 @@ describe('main function', () => {
         apiUrl: 'https://api.commercetools.com',
       },
       configuration: {
-        actions: {'product-selection': {read: true}},
+        actions: { 'product-selection': { read: true } },
         context: {
           isAdmin: true,
         },
@@ -431,7 +431,7 @@ describe('main function', () => {
         apiUrl: 'https://api.commercetools.com',
       },
       configuration: {
-        actions: {'product-selection': {create: true}},
+        actions: { 'product-selection': { create: true } },
         context: {
           isAdmin: true,
         },
@@ -466,7 +466,7 @@ describe('main function', () => {
         apiUrl: 'https://api.commercetools.com',
       },
       configuration: {
-        actions: {'product-selection': {update: true}},
+        actions: { 'product-selection': { update: true } },
         context: {
           isAdmin: true,
         },
@@ -501,7 +501,7 @@ describe('main function', () => {
         apiUrl: 'https://api.commercetools.com',
       },
       configuration: {
-        actions: {order: {read: true}},
+        actions: { order: { read: true } },
         context: {
           isAdmin: true,
         },
@@ -536,7 +536,7 @@ describe('main function', () => {
         apiUrl: 'https://api.commercetools.com',
       },
       configuration: {
-        actions: {order: {create: true}},
+        actions: { order: { create: true } },
         context: {
           isAdmin: true,
         },
@@ -571,7 +571,7 @@ describe('main function', () => {
         apiUrl: 'https://api.commercetools.com',
       },
       configuration: {
-        actions: {order: {update: true}},
+        actions: { order: { update: true } },
         context: {
           isAdmin: true,
         },
@@ -606,7 +606,7 @@ describe('main function', () => {
         apiUrl: 'https://api.commercetools.com',
       },
       configuration: {
-        actions: {cart: {read: true}},
+        actions: { cart: { read: true } },
         context: {
           isAdmin: true,
         },
@@ -641,7 +641,7 @@ describe('main function', () => {
         apiUrl: 'https://api.commercetools.com',
       },
       configuration: {
-        actions: {cart: {create: true}},
+        actions: { cart: { create: true } },
         context: {
           isAdmin: true,
         },
@@ -676,7 +676,7 @@ describe('main function', () => {
         apiUrl: 'https://api.commercetools.com',
       },
       configuration: {
-        actions: {cart: {update: true}},
+        actions: { cart: { update: true } },
         context: {
           isAdmin: true,
         },
@@ -711,7 +711,7 @@ describe('main function', () => {
         apiUrl: 'https://api.commercetools.com',
       },
       configuration: {
-        actions: {customer: {create: true}},
+        actions: { customer: { create: true } },
         context: {
           isAdmin: true,
         },
@@ -746,7 +746,7 @@ describe('main function', () => {
         apiUrl: 'https://api.commercetools.com',
       },
       configuration: {
-        actions: {customer: {read: true}},
+        actions: { customer: { read: true } },
         context: {
           isAdmin: true,
         },
@@ -781,7 +781,7 @@ describe('main function', () => {
         apiUrl: 'https://api.commercetools.com',
       },
       configuration: {
-        actions: {customer: {update: true}},
+        actions: { customer: { update: true } },
         context: {
           isAdmin: true,
         },
@@ -816,7 +816,7 @@ describe('main function', () => {
         apiUrl: 'https://api.commercetools.com',
       },
       configuration: {
-        actions: {'customer-group': {read: true}},
+        actions: { 'customer-group': { read: true } },
         context: {
           isAdmin: true,
         },
@@ -851,7 +851,7 @@ describe('main function', () => {
         apiUrl: 'https://api.commercetools.com',
       },
       configuration: {
-        actions: {'customer-group': {create: true}},
+        actions: { 'customer-group': { create: true } },
         context: {
           isAdmin: true,
         },
@@ -886,7 +886,7 @@ describe('main function', () => {
         apiUrl: 'https://api.commercetools.com',
       },
       configuration: {
-        actions: {'customer-group': {update: true}},
+        actions: { 'customer-group': { update: true } },
         context: {
           isAdmin: true,
         },
@@ -921,7 +921,7 @@ describe('main function', () => {
         apiUrl: 'https://api.commercetools.com',
       },
       configuration: {
-        actions: {'standalone-price': {read: true}},
+        actions: { 'standalone-price': { read: true } },
         context: {
           isAdmin: true,
         },
@@ -956,7 +956,7 @@ describe('main function', () => {
         apiUrl: 'https://api.commercetools.com',
       },
       configuration: {
-        actions: {'standalone-price': {create: true}},
+        actions: { 'standalone-price': { create: true } },
         context: {
           isAdmin: true,
         },
@@ -991,7 +991,7 @@ describe('main function', () => {
         apiUrl: 'https://api.commercetools.com',
       },
       configuration: {
-        actions: {'standalone-price': {update: true}},
+        actions: { 'standalone-price': { update: true } },
         context: {
           isAdmin: true,
         },
@@ -1026,7 +1026,7 @@ describe('main function', () => {
         apiUrl: 'https://api.commercetools.com',
       },
       configuration: {
-        actions: {'product-discount': {read: true}},
+        actions: { 'product-discount': { read: true } },
         context: {
           isAdmin: true,
         },
@@ -1061,7 +1061,7 @@ describe('main function', () => {
         apiUrl: 'https://api.commercetools.com',
       },
       configuration: {
-        actions: {'product-discount': {create: true}},
+        actions: { 'product-discount': { create: true } },
         context: {
           isAdmin: true,
         },
@@ -1096,7 +1096,7 @@ describe('main function', () => {
         apiUrl: 'https://api.commercetools.com',
       },
       configuration: {
-        actions: {'product-discount': {update: true}},
+        actions: { 'product-discount': { update: true } },
         context: {
           isAdmin: true,
         },
@@ -1131,7 +1131,7 @@ describe('main function', () => {
         apiUrl: 'https://api.commercetools.com',
       },
       configuration: {
-        actions: {'cart-discount': {read: true}},
+        actions: { 'cart-discount': { read: true } },
         context: {
           isAdmin: true,
         },
@@ -1166,7 +1166,7 @@ describe('main function', () => {
         apiUrl: 'https://api.commercetools.com',
       },
       configuration: {
-        actions: {'cart-discount': {create: true}},
+        actions: { 'cart-discount': { create: true } },
         context: {
           isAdmin: true,
         },
@@ -1201,7 +1201,7 @@ describe('main function', () => {
         apiUrl: 'https://api.commercetools.com',
       },
       configuration: {
-        actions: {'cart-discount': {update: true}},
+        actions: { 'cart-discount': { update: true } },
         context: {
           isAdmin: true,
         },
@@ -1236,7 +1236,7 @@ describe('main function', () => {
         apiUrl: 'https://api.commercetools.com',
       },
       configuration: {
-        actions: {'discount-code': {read: true}},
+        actions: { 'discount-code': { read: true } },
         context: {
           isAdmin: true,
         },
@@ -1271,7 +1271,7 @@ describe('main function', () => {
         apiUrl: 'https://api.commercetools.com',
       },
       configuration: {
-        actions: {'discount-code': {create: true}},
+        actions: { 'discount-code': { create: true } },
         context: {
           isAdmin: true,
         },
@@ -1306,7 +1306,7 @@ describe('main function', () => {
         apiUrl: 'https://api.commercetools.com',
       },
       configuration: {
-        actions: {'discount-code': {update: true}},
+        actions: { 'discount-code': { update: true } },
         context: {
           isAdmin: true,
         },
@@ -1341,7 +1341,7 @@ describe('main function', () => {
         apiUrl: 'https://api.commercetools.com',
       },
       configuration: {
-        actions: {bulk: {create: true}},
+        actions: { bulk: { create: true } },
         context: {
           isAdmin: true,
         },
@@ -1376,7 +1376,7 @@ describe('main function', () => {
         apiUrl: 'https://api.commercetools.com',
       },
       configuration: {
-        actions: {bulk: {update: true}},
+        actions: { bulk: { update: true } },
         context: {
           isAdmin: true,
         },
@@ -1411,7 +1411,7 @@ describe('main function', () => {
         apiUrl: 'https://api.commercetools.com',
       },
       configuration: {
-        actions: {inventory: {read: true}},
+        actions: { inventory: { read: true } },
         context: {
           isAdmin: true,
         },
@@ -1446,7 +1446,7 @@ describe('main function', () => {
         apiUrl: 'https://api.commercetools.com',
       },
       configuration: {
-        actions: {inventory: {create: true}},
+        actions: { inventory: { create: true } },
         context: {
           isAdmin: true,
         },
@@ -1481,7 +1481,7 @@ describe('main function', () => {
         apiUrl: 'https://api.commercetools.com',
       },
       configuration: {
-        actions: {inventory: {update: true}},
+        actions: { inventory: { update: true } },
         context: {
           isAdmin: true,
         },
@@ -1516,7 +1516,7 @@ describe('main function', () => {
         apiUrl: 'https://api.commercetools.com',
       },
       configuration: {
-        actions: {store: {read: true}},
+        actions: { store: { read: true } },
         context: {
           isAdmin: true,
         },
@@ -1551,7 +1551,7 @@ describe('main function', () => {
         apiUrl: 'https://api.commercetools.com',
       },
       configuration: {
-        actions: {store: {create: true}},
+        actions: { store: { create: true } },
         context: {
           isAdmin: true,
         },
@@ -1586,7 +1586,7 @@ describe('main function', () => {
         apiUrl: 'https://api.commercetools.com',
       },
       configuration: {
-        actions: {store: {update: true}},
+        actions: { store: { update: true } },
         context: {
           isAdmin: true,
         },
@@ -1621,7 +1621,7 @@ describe('main function', () => {
         apiUrl: 'https://api.commercetools.com',
       },
       configuration: {
-        actions: {quote: {read: true}},
+        actions: { quote: { read: true } },
         context: {
           isAdmin: true,
         },
@@ -1656,7 +1656,7 @@ describe('main function', () => {
         apiUrl: 'https://api.commercetools.com',
       },
       configuration: {
-        actions: {quote: {create: true}},
+        actions: { quote: { create: true } },
         context: {
           isAdmin: true,
         },
@@ -1691,7 +1691,7 @@ describe('main function', () => {
         apiUrl: 'https://api.commercetools.com',
       },
       configuration: {
-        actions: {quote: {update: true}},
+        actions: { quote: { update: true } },
         context: {
           isAdmin: true,
         },
@@ -1726,7 +1726,7 @@ describe('main function', () => {
         apiUrl: 'https://api.commercetools.com',
       },
       configuration: {
-        actions: {'staged-quote': {read: true}},
+        actions: { 'staged-quote': { read: true } },
         context: {
           isAdmin: true,
         },
@@ -1761,7 +1761,7 @@ describe('main function', () => {
         apiUrl: 'https://api.commercetools.com',
       },
       configuration: {
-        actions: {'staged-quote': {create: true}},
+        actions: { 'staged-quote': { create: true } },
         context: {
           isAdmin: true,
         },
@@ -1796,7 +1796,7 @@ describe('main function', () => {
         apiUrl: 'https://api.commercetools.com',
       },
       configuration: {
-        actions: {'staged-quote': {update: true}},
+        actions: { 'staged-quote': { update: true } },
         context: {
           isAdmin: true,
         },
@@ -1834,9 +1834,9 @@ describe('main function', () => {
       },
       configuration: {
         actions: {
-          products: {read: true},
-          order: {read: true},
-          cart: {read: true},
+          products: { read: true },
+          order: { read: true },
+          cart: { read: true },
         },
         context: {
           customerId: 'xxx',
@@ -1879,7 +1879,7 @@ describe('main function', () => {
     },
   ])(
     'should initialize the server with authType=$authType correctly',
-    async ({authType, authArgs, expectedAuthConfig}) => {
+    async ({ authType, authArgs, expectedAuthConfig }) => {
       process.argv = [
         'node',
         'index.js',
@@ -1896,7 +1896,7 @@ describe('main function', () => {
       expect(CommercetoolsAgentEssentials.create).toHaveBeenCalledWith({
         authConfig: expectedAuthConfig,
         configuration: {
-          actions: {products: {read: true}},
+          actions: { products: { read: true } },
           context: {
             isAdmin: true,
           },
@@ -1932,7 +1932,7 @@ describe('main function', () => {
         apiUrl: 'https://api.commercetools.com',
       },
       configuration: {
-        actions: {products: {read: true}},
+        actions: { products: { read: true } },
         context: {
           isAdmin: true,
         },
@@ -1953,7 +1953,7 @@ describe('main function', () => {
       jest
         .spyOn(CommercetoolsAgentEssentials, 'create')
         .mockImplementation(
-          (_: {authConfig: AuthConfig; configuration: Configuration}) =>
+          (_: { authConfig: AuthConfig; configuration: Configuration }) =>
             Promise.resolve<any>({
               connect: jest.fn(),
             })
@@ -1990,7 +1990,7 @@ describe('main function', () => {
       },
     ])(
       'should initialize the server with authType=$authType correctly',
-      async ({authType, authArgs, expectedAuthConfig}) => {
+      async ({ authType, authArgs, expectedAuthConfig }) => {
         process.argv = [
           'node',
           'index.js',
@@ -2007,7 +2007,7 @@ describe('main function', () => {
         expect(CommercetoolsAgentEssentials.create).toHaveBeenCalledWith({
           authConfig: expectedAuthConfig,
           configuration: {
-            actions: {products: {read: true}},
+            actions: { products: { read: true } },
             context: {
               isAdmin: true,
             },
@@ -2063,7 +2063,7 @@ describe('main function', () => {
           apiUrl: 'https://api.commercetools.com',
         },
         configuration: {
-          actions: {products: {read: true}},
+          actions: { products: { read: true } },
           context: {
             isAdmin: true,
           },

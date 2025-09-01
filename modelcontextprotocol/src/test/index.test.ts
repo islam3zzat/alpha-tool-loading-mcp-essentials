@@ -1,12 +1,12 @@
-import {ACCEPTED_TOOLS, parseArgs} from '../index';
+import { ACCEPTED_TOOLS, parseArgs } from '../index';
 import {
   CommercetoolsAgentEssentials,
   Configuration,
   AvailableNamespaces,
-} from '@commercetools/agent-essentials/modelcontextprotocol';
+} from '@islam3zzat/agent-essentials/modelcontextprotocol';
 
 // Mock the CommercetoolsAgentEssentials and transport
-jest.mock('@commercetools/agent-essentials/modelcontextprotocol');
+jest.mock('@islam3zzat/agent-essentials/modelcontextprotocol');
 jest.mock('@modelcontextprotocol/sdk/server/stdio.js');
 
 describe('parseArgs function', () => {
@@ -28,7 +28,7 @@ describe('parseArgs function', () => {
         '--projectKey=test_project',
         '--apiUrl=https://api.commercetools.com',
       ];
-      const {options, env} = parseArgs(args);
+      const { options, env } = parseArgs(args);
       expect(options.tools).toEqual(['all']);
       expect(env.clientId).toBe('test_client_id');
       expect(env.clientSecret).toBe('test_client_secret');
@@ -46,7 +46,7 @@ describe('parseArgs function', () => {
         '--projectKey=test_project',
         '--apiUrl=https://api.commercetools.com',
       ];
-      const {options} = parseArgs(args);
+      const { options } = parseArgs(args);
       expect(options.tools).toEqual(['all.read']);
     });
 
@@ -59,7 +59,7 @@ describe('parseArgs function', () => {
         '--projectKey=test_project',
         '--apiUrl=https://api.commercetools.com',
       ];
-      const {options} = parseArgs(args);
+      const { options } = parseArgs(args);
       expect(options.tools).toEqual(['products.read']);
     });
 
@@ -74,7 +74,7 @@ describe('parseArgs function', () => {
       ];
 
       expect(() => parseArgs(args)).not.toThrow();
-      const {options} = parseArgs(args);
+      const { options } = parseArgs(args);
       expect(options.tools).toEqual(['all.read']);
     });
 
@@ -89,7 +89,7 @@ describe('parseArgs function', () => {
       ];
 
       expect(() => parseArgs(args)).not.toThrow();
-      const {options} = parseArgs(args);
+      const { options } = parseArgs(args);
       expect(options.tools).toEqual(['all.read', 'products.create']);
     });
 
@@ -101,7 +101,7 @@ describe('parseArgs function', () => {
       process.env.API_URL = 'https://api.commercetools.com';
 
       const args = ['--tools=all'];
-      const {env} = parseArgs(args);
+      const { env } = parseArgs(args);
       expect(env.clientId).toBe('env_client_id');
       expect(env.clientSecret).toBe('env_client_secret');
       expect(env.authUrl).toBe('https://auth.commercetools.com');
@@ -131,7 +131,7 @@ describe('parseArgs function', () => {
         '--projectKey=arg_project',
         '--apiUrl=https://api-arg.commercetools.com',
       ];
-      const {env} = parseArgs(args);
+      const { env } = parseArgs(args);
       expect(env.clientId).toBe('arg_client_id');
       expect(env.clientSecret).toBe('arg_client_secret');
       expect(env.authUrl).toBe('https://auth-arg.commercetools.com');
@@ -158,7 +158,7 @@ describe('parseArgs function', () => {
         '--businessUnitKey=yyy',
         '--isAdmin=true',
       ];
-      const {options} = parseArgs(args);
+      const { options } = parseArgs(args);
       expect(options.customerId).toBe('xxx');
       expect(options.isAdmin).toBe(true);
       expect(options.businessUnitKey).toBe('yyy');
@@ -174,7 +174,7 @@ describe('parseArgs function', () => {
         '--apiUrl=https://api.commercetools.com',
         '--isAdmin=false',
       ];
-      const {options} = parseArgs(args);
+      const { options } = parseArgs(args);
       expect(options.isAdmin).toBe(false);
     });
 
@@ -205,7 +205,7 @@ describe('parseArgs function', () => {
       },
     ])(
       'should parse authType=$authType correctly',
-      ({authType, expectedAuthType, requiredArgs, optionalArgs}) => {
+      ({ authType, expectedAuthType, requiredArgs, optionalArgs }) => {
         const args = [
           '--tools=all',
           authType ? `--authType=${authType}` : '',
@@ -215,7 +215,7 @@ describe('parseArgs function', () => {
           ...requiredArgs,
           ...optionalArgs,
         ];
-        const {env} = parseArgs(args);
+        const { env } = parseArgs(args);
         expect(env.authType).toBe(expectedAuthType);
       }
     );
@@ -238,7 +238,7 @@ describe('parseArgs function', () => {
       },
     ])(
       'should use environment variable $authType when authType argument is not provided',
-      ({authType = 'client_credentials', envKeys, envValues}) => {
+      ({ authType = 'client_credentials', envKeys, envValues }) => {
         process.env.AUTH_TYPE = authType;
         envKeys.forEach((key, index) => {
           process.env[key] = envValues[index];
@@ -248,7 +248,7 @@ describe('parseArgs function', () => {
         process.env.API_URL = 'https://api.commercetools.com';
 
         const args = ['--tools=all'];
-        const {env} = parseArgs(args);
+        const { env } = parseArgs(args);
 
         expect(env.authType).toBe(authType);
 
@@ -279,7 +279,7 @@ describe('parseArgs function', () => {
         '--projectKey=arg_project',
         '--apiUrl=https://api-arg.commercetools.com',
       ];
-      const {env} = parseArgs(args);
+      const { env } = parseArgs(args);
       expect(env.authType).toBe('client_credentials');
 
       // Clean up
@@ -322,7 +322,7 @@ describe('parseArgs function', () => {
         },
       ])(
         '$authType with missing $missingCredential',
-        ({authType, args, expectedError}) => {
+        ({ authType, args, expectedError }) => {
           it(`should throw an error when authType=${authType} but required credentials are missing`, () => {
             const testArgs = [
               '--tools=all',
@@ -390,7 +390,7 @@ describe('parseArgs function', () => {
       ];
 
       // Import and run main function
-      const {main} = require('../index');
+      const { main } = require('../index');
       return main().then(() => {
         // Verify that only read operations are enabled
         expect(capturedConfiguration.actions).toBeDefined();
