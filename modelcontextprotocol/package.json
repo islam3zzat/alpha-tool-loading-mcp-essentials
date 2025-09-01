@@ -1,6 +1,6 @@
 {
-  "name": "@commercetools/mcp-essentials",
-  "version": "2.1.0",
+  "name": "@islam3zzat/mcp-essentials",
+  "version": "3.5.0",
   "homepage": "https://github.com/commercetools/mcp-essentials",
   "description": "A command line tool for setting up commercetools MCP server",
   "bin": "dist/index.js",
@@ -13,7 +13,7 @@
   ],
   "scripts": {
     "preinstall": "npx only-allow pnpm",
-    "prebuild": "pnpm --filter @commercetools/agent-essentials run build",
+    "prebuild": "pnpm --filter @islam3zzat/agent-essentials run build",
     "dev": "concurrently -n BUILD,SERVER -c magenta,cyan \"pnpm dev:build\" \"pnpm dev:run\"",
     "dev:build": "tsup --env.NODE_ENV dev",
     "dev:run": "nodemon  dist/index.js --watch",
@@ -33,7 +33,7 @@
     "access": "public"
   },
   "dependencies": {
-    "@commercetools/agent-essentials": "workspace:*",
+    "@islam3zzat/agent-essentials": "workspace:*",
     "@modelcontextprotocol/sdk": "^1.11.0",
     "colors": "^1.4.0",
     "dotenv": "^17.2.1",
